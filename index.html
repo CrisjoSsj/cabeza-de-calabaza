@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#2a1446">
+  <title>Cabeza de Calabaza 🎃 · El reto de la ilusión</title>
+  <meta name="description" content="Mini juego de la tendencia Pumpkin Head Illusion: toca para tapar la cabeza del bailarín con la calabaza. ¡Partidas de 45 segundos!">
+  <meta property="og:title" content="Cabeza de Calabaza 🎃 · El reto de la ilusión">
+  <meta property="og:description" content="Tapa la cabeza del bailarín con la calabaza en el momento justo. ¿Cuántos puntos haces en 45 segundos?">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎃</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header id="hud" class="hidden">
+      <div class="hud-box"><span class="hud-label">Puntos</span><span id="hud-score">0</span></div>
+      <div class="hud-box hud-time"><span class="hud-label">Tiempo</span><span id="hud-time">45</span></div>
+      <div class="hud-box"><span class="hud-label">Combo</span><span id="hud-combo">x1</span></div>
+    </header>
+    <div id="timebar" class="hidden"><div id="timebar-fill"></div></div>
+
+    <canvas id="game" aria-label="Área de juego"></canvas>
+    <div id="feedback" aria-live="polite"></div>
+    <div id="flash"></div>
+    <div id="film" class="hidden" aria-hidden="true"></div>
+
+    <section id="screen-start" class="screen">
+      <div class="card">
+        <div class="tag">🔥 Tendencia de TikTok · Octubre 2026</div>
+        <h1>Cabeza de<br><span>Calabaza</span> 🎃</h1>
+        <p class="sub">El reto de la <b>Pumpkin Head Illusion</b></p>
+        <p class="howto">👆 Toca la pantalla justo cuando la calabaza tape la cabeza del bailarín.</p>
+        <ul class="rules">
+          <li><b>¡PERFECTA!</b> +3 · <b>Bien</b> +1 · Fallo −2 s</li>
+          <li>Encadena aciertos para subir el combo · 🌟 la dorada vale doble</li>
+        </ul>
+        <button id="btn-play" class="btn btn-main">¡Jugar! (45 s)</button>
+        <p class="record">🏆 Récord: <b id="start-record">0</b></p>
+        <button id="btn-sound" class="btn-mini" aria-pressed="true">🔊 Sonido: sí</button>
+      </div>
+    </section>
+
+    <section id="screen-end" class="screen hidden">
+      <div class="card">
+        <div class="tag">📸 ¡Se acabó la sesión de fotos!</div>
+        <h2 id="end-title">¡Bien hecho!</h2>
+        <div class="big-score"><span id="end-score">0</span><small>puntos</small></div>
+        <p id="end-new" class="new-record hidden">🎉 ¡Nuevo récord!</p>
+        <div class="stats">
+          <div><b id="end-perfect">0</b><span>perfectas</span></div>
+          <div><b id="end-good">0</b><span>bien</span></div>
+          <div><b id="end-maxcombo">0</b><span>mejor combo</span></div>
+        </div>
+        <div id="end-photos" class="end-photos"></div>
+        <p class="record">🏆 Récord: <b id="end-record">0</b></p>
+        <div class="row">
+          <button id="btn-restart" class="btn btn-main">🔄 Reiniciar</button>
+          <button id="btn-share" class="btn btn-alt">📤 Compartir</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="toast" role="status"></div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
